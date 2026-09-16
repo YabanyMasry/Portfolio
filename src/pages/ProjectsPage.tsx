@@ -4,11 +4,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './ProjectsPage.css';
-import SweeperImg from '../assets/Sweeper.PNG';
-import PlayerImg from '../assets/Player1.PNG';
-import StreamImg from '../assets/Stream.PNG';
-import ScheduleImg from '../assets/Schedule.PNG';
-import JobifyImg from '../assets/Jobify.PNG';
+import SweeperImg from '../assets/Sweeper.png';
+import PlayerImg from '../assets/Player1.png';
+import StreamImg from '../assets/Stream.png';
+import ScheduleImg from '../assets/Schedule.png';
+import JobifyImg from '../assets/Jobify.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
