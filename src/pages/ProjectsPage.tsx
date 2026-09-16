@@ -90,8 +90,9 @@ export default function ProjectsPage() {
     const cards = gsap.utils.toArray(".brutalist-card", container) as HTMLElement[];
     const totalCards = projects.length;
     const vw = window.innerWidth;
-    const cardWidth = vw * 0.5;
-    const gap = vw * 0.1;
+    const isMobile = vw <= 768;
+    const cardWidth = isMobile ? vw * 0.75 : vw * 0.5;
+    const gap = isMobile ? vw * 0.05 : vw * 0.1;
     const cardUnit = cardWidth + gap;
     const totalLen = totalCards * cardUnit;
     const centerX = (vw - cardWidth) / 2; // X to place a card at viewport center

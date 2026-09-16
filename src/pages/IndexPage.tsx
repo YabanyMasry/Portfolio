@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import HeroPage from './HeroPage';
 import AboutPage from './AboutPage';
 import HowWeWorkPage from './HowWeWorkPage';
@@ -6,6 +7,17 @@ import ContactPage from './ContactPage';
 import ScrollExpand from '../components/ui/ScrollExpand';
 
 export default function IndexPage() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.matchMedia('(max-width: 768px)').matches);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <div style={{ position: 'relative' }}>
       <style>{`
@@ -93,6 +105,34 @@ export default function IndexPage() {
           margin-right: 0.4rem;
           vertical-align: super;
         }
+
+        /* Mobile Adaptation (Impeccable) */
+        @media (max-width: 768px), (max-aspect-ratio: 9/16) {
+          .nav-brutalist {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: auto;
+            padding: 1.25rem 1rem;
+            gap: 0.85rem;
+          }
+          .nav-wordmark {
+            font-size: 0.8rem;
+          }
+          .nav-links {
+            width: 100%;
+            justify-content: space-between;
+            overflow: visible;
+          }
+          .nav-index, .nav-separator {
+            display: none;
+          }
+          .nav-link {
+            font-size: 0.55rem;
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+          }
+        }
       `}</style>
 
       <nav className="nav-brutalist">
@@ -136,6 +176,9 @@ export default function IndexPage() {
             src="#F4F4F0"
             useWindowScroll={true}
             maskChildren={true}
+            startWidth={isMobile ? 80 : 42}
+            startHeight={isMobile ? 40 : 58}
+            scrollDistance={isMobile ? 0.7 : 1.2}
             backgroundChildren={
               <div style={{
                 position: 'absolute',

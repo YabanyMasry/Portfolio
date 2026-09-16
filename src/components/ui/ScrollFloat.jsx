@@ -22,27 +22,37 @@ const ScrollFloat = ({
 
   const splitText = useMemo(() => {
     const text = typeof children === 'string' ? children : '';
-    const chars = [];
+    const words = text.split(' ');
     let isHighlighted = false;
     let charIndex = 0;
 
-    for (let i = 0; i < text.length; i++) {
-      if (text[i] === '*') {
-        isHighlighted = !isHighlighted;
-        continue;
+    return words.map((word, wordIndex) => {
+      const charElements = [];
+      for (let i = 0; i < word.length; i++) {
+        if (word[i] === '*') {
+          isHighlighted = !isHighlighted;
+          continue;
+        }
+        
+        charElements.push(
+          <span 
+            className={`char ${isHighlighted ? 'highlight-char' : ''}`} 
+            key={charIndex++}
+          >
+            {word[i]}
+          </span>
+        );
       }
       
-      const char = text[i];
-      chars.push(
-        <span 
-          className={`char ${isHighlighted ? 'highlight-char' : ''}`} 
-          key={charIndex++}
-        >
-          {char === ' ' ? '\u00A0' : char}
+      return (
+        <span key={`word-wrap-${wordIndex}`}>
+          <span className="word" style={{ display: 'inline-block' }}>
+            {charElements}
+          </span>
+          {wordIndex !== words.length - 1 && ' '}
         </span>
       );
-    }
-    return chars;
+    });
   }, [children]);
 
   useEffect(() => {

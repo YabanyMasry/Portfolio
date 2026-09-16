@@ -29,7 +29,7 @@ const sections = [
     desc: (
       <>
         A standard UI designer knows what <em>could</em> be; as a developer, I know what 
-         <em>can</em> be. Because I understand the entire lifecycle, I build performant systems 
+         <em> can</em> be. Because I understand the entire lifecycle, I build performant systems 
         without the typical disconnect between design and code.
       </>
     ),

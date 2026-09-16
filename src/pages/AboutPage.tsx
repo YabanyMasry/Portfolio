@@ -39,9 +39,49 @@ export default function AboutPage() {
 
   return (
     <main style={{ backgroundColor: '#111111', color: '#EDEDED' }}>
+      <style>{`
+        .desktop-lanyard {
+          display: block;
+        }
+        .mobile-brutalist-graphic {
+          display: none;
+        }
 
-
-
+        @media (max-width: 768px), (max-aspect-ratio: 9/16) {
+          .desktop-lanyard {
+            display: none !important;
+          }
+          .mobile-brutalist-graphic {
+            display: block;
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-90deg);
+            font-family: var(--font-clash);
+            font-size: 22vh;
+            font-weight: 900;
+            line-height: 0.8;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(237, 237, 237, 0.15);
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 0;
+          }
+          .mobile-brutalist-graphic::after {
+            content: '02';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--font-lora);
+            font-style: italic;
+            font-size: 15vh;
+            color: rgba(237, 237, 237, 0.08);
+            -webkit-text-stroke: 0;
+            z-index: -1;
+          }
+        }
+      `}</style>
 
       {/* Second Sticky Track for ScrollFloat */}
       <div ref={secondTrackRef} style={{ height: '400vh', position: 'relative' }}>
@@ -118,8 +158,8 @@ export default function AboutPage() {
               Philosophy & Approach
             </div>
 
-            {/* Hanging Lanyard */}
-            <div style={{
+            {/* Hanging Lanyard (Desktop Only) */}
+            <div className="desktop-lanyard" style={{
               position: 'absolute',
               top: '6rem',
               left: 0,
@@ -131,6 +171,11 @@ export default function AboutPage() {
               <div style={{ width: '100%', height: '100%', pointerEvents: 'auto' }}>
                 <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
               </div>
+            </div>
+
+            {/* Mobile Brutalist Graphic */}
+            <div className="mobile-brutalist-graphic">
+              MANIFESTO
             </div>
 
             <ScrollFloat
