@@ -1,5 +1,7 @@
 import { useRef, useEffect } from 'react';
+// @ts-ignore
 import ScrollFloat from '../components/ui/ScrollFloat';
+// @ts-ignore
 import Lanyard from '../components/ui/Lanyard';
 import ProgressBar from '../components/ui/ProgressBar';
 

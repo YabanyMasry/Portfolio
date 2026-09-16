@@ -173,7 +173,7 @@ export default function ProjectsPage() {
       positionCards();
     };
 
-    const onPointerUp = (e: PointerEvent) => {
+    const onPointerUp = () => {
       const state = dragState.current;
       if (!state.isDragging) return;
       state.isDragging = false;
