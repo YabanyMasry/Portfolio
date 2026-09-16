@@ -79,14 +79,15 @@ export default function HowWeWorkPage() {
   useGSAP(() => {
     const cards = gsap.utils.toArray('.hww-section') as HTMLElement[];
     
-    // We want the folder tabs to pin below the hero.
-    // 72px is 4.5rem (the height of the folder header).
-    // Start pinning at 96px (6rem) from the top of the viewport so they don't hit the absolute edge.
-    const startOffset = 96; 
+    // 80px is 5rem (desktop header height). 56px is 3.5rem (mobile header).
+    const isMobile = window.innerWidth <= 768;
+    const headerHeight = isMobile ? 56 : 80;
+    // Start pinning at 6rem (96px) on desktop, or roughly below mobile nav (64px) on mobile.
+    const startOffset = isMobile ? 64 : 96; 
 
     cards.forEach((card, index) => {
       // Pin each card when its top reaches the progressive folder tab offset
-      const pinTop = startOffset + index * 72;
+      const pinTop = startOffset + index * headerHeight;
       
       ScrollTrigger.create({
         trigger: card,
@@ -95,7 +96,8 @@ export default function HowWeWorkPage() {
         end: 'bottom bottom',
         pin: true,
         pinSpacing: false, // Prevents space reservation so the next card stacks right over it
-        invalidateOnRefresh: true,
+        // Only invalidate on refresh on desktop; on mobile, URL bar hiding causes aggressive snap jumps
+        invalidateOnRefresh: !isMobile, 
       });
     });
   }, { scope: containerRef });

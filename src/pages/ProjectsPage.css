@@ -2,7 +2,7 @@
   background-color: #F4F4F0;
   color: #111111;
   font-family: var(--font-switzer);
-  min-height: 100vh;
+  height: 120vh; /* Extra 20vh for the sticky scroll catch */
   position: relative;
 }
 
@@ -19,7 +19,8 @@
   color: #0A0A0A;
   display: flex;
   flex-direction: column;
-  position: relative;
+  position: sticky;
+  top: 0;
   padding-top: 6rem;
 }
 

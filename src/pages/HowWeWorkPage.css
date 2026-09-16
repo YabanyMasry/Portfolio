@@ -176,4 +176,8 @@
   .hww-row {
     grid-template-columns: 2rem 1fr;
   }
+  
+  .hww-section {
+    min-height: 100svh;
+  }
 }

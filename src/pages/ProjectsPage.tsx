@@ -200,40 +200,11 @@ export default function ProjectsPage() {
     imageArea.addEventListener('pointerup', onPointerUp);
     imageArea.addEventListener('pointercancel', onPointerUp);
 
-    // -- Vertical Snap: only when entering the section (scrolling down) --
-    const projectsEl = container.closest('.projects-page') as HTMLElement;
-    let scrollingDown = true;
-    let lastScrollY = window.scrollY;
-
-    const directionTracker = () => {
-      scrollingDown = window.scrollY > lastScrollY;
-      lastScrollY = window.scrollY;
-    };
-    window.addEventListener('scroll', directionTracker, { passive: true });
-
-    const verticalSnap = ScrollTrigger.create({
-      trigger: projectsEl || ".projects-page",
-      start: "top 80%",
-      end: "top top",
-      snap: {
-        snapTo: (value: number) => {
-          // Only snap forward (into the section) when scrolling down
-          if (scrollingDown && value > 0.15) return 1;
-          return value; // Don't interfere when scrolling up or barely entered
-        },
-        duration: { min: 0.2, max: 0.5 },
-        delay: 0.05,
-        ease: "power3.inOut"
-      }
-    });
-
     return () => {
       imageArea.removeEventListener('pointerdown', onPointerDown);
       imageArea.removeEventListener('pointermove', onPointerMove);
       imageArea.removeEventListener('pointerup', onPointerUp);
       imageArea.removeEventListener('pointercancel', onPointerUp);
-      window.removeEventListener('scroll', directionTracker);
-      verticalSnap.kill();
     };
   }, { scope: containerRef });
 
