@@ -1,0 +1,29 @@
+.scroll-float {
+  overflow: hidden;
+}
+
+.scroll-float-text {
+  display: inline-block;
+  font-family: var(--font-switzer);
+  font-size: clamp(2.4rem, 6vw, 7rem);
+  font-weight: 700;
+  text-align: left;
+  line-height: 1.15;
+}
+
+.scroll-float-text-small {
+  font-size: clamp(1.2rem, 3vw, 3rem);
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.highlight-char {
+  font-family: var(--font-lora);
+  font-style: italic;
+  font-weight: 400;
+  color: #EDEDED; /* A subtle color shift for extra flair */
+}
+
+.char {
+  display: inline-block;
+}

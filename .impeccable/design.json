@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-15T20:25:00Z",
+  "title": "Design System: Yousef Ochiai Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "primary": { "role": "primary", "displayName": "Vibrant Indigo", "canonical": "#6366f1", "tonalRamp": ["#312e81", "#3730a3", "#4338ca", "#4f46e5", "#6366f1", "#818cf8", "#a5b4fc", "#c7d2fe", "#e0e7ff"] },
+      "secondary": { "role": "secondary", "displayName": "Deep Violet", "canonical": "#8b5cf6", "tonalRamp": ["#4c1d95", "#5b21b6", "#6d28d9", "#7c3aed", "#8b5cf6", "#a78bfa", "#c4b5fd", "#ddd6fe", "#ede9fe"] },
+      "neutral-bg": { "role": "neutral", "displayName": "Deep Charcoal Base", "canonical": "#0a0a0a", "tonalRamp": ["#000000", "#0a0a0a", "#121212", "#171717", "#262626", "#404040", "#525252", "#737373", "#a3a3a3"] },
+      "neutral-surface": { "role": "neutral", "displayName": "Surface Canvas", "canonical": "#111111", "tonalRamp": ["#000000", "#111111", "#1a1a1a", "#262626", "#333333", "#4d4d4d", "#666666", "#808080", "#999999"] },
+      "neutral-text": { "role": "neutral", "displayName": "Stark White", "canonical": "#f5f5f5", "tonalRamp": ["#d4d4d4", "#e5e5e5", "#f5f5f5", "#fafafa", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display (Switzer)", "purpose": "Massive, structural text used as a background element in hero sections." },
+      "headline": { "displayName": "Headline (Outfit)", "purpose": "Section titles and primary headers." },
+      "body": { "displayName": "Body (Inter)", "purpose": "Legible, precise copy for descriptions and case studies." }
+    }
+  },
+  "components": [
+    {
+      "name": "Glass Panel",
+      "kind": "card",
+      "refersTo": "glass-panel",
+      "description": "Translucent floating panel with backdrop blur.",
+      "html": "<div class=\"ds-glass-panel\">\n  <h3 class=\"ds-glass-title\">Interactive Canvas</h3>\n  <p class=\"ds-glass-text\">Floating UI elements driven by motion.</p>\n</div>",
+      "css": ".ds-glass-panel { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 24px; color: #f5f5f5; font-family: 'Inter', sans-serif; } .ds-glass-title { font-family: 'Outfit', sans-serif; margin: 0 0 8px 0; font-weight: 600; font-size: 1.25rem; } .ds-glass-text { margin: 0; color: #a3a3a3; line-height: 1.6; }"
+    },
+    {
+      "name": "Primary Gradient Text",
+      "kind": "custom",
+      "refersTo": "text-gradient",
+      "description": "Vibrant indigo to violet gradient applied to text.",
+      "html": "<span class=\"ds-text-gradient\">Artistry & Innovation</span>",
+      "css": ".ds-text-gradient { background: linear-gradient(135deg, #6366f1, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 2rem; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Interactive Canvas",
+    "overview": "The portfolio is a deep, immersive, and technical space designed to act as a canvas for interactive experiences, 3D models, and scroll-driven motion. The aesthetic philosophy relies on sharp contrasts, utilizing a deep charcoal foundation broken only by vibrant indigo accents and glowing glassmorphism. It avoids traditional flat layouts in favor of spatial depth driven by motion and scroll, rather than static drop shadows.",
+    "keyCharacteristics": [
+      "Immersive dark mode by default.",
+      "Typography as a structural background element.",
+      "Scroll-driven reveals and 3D integration.",
+      "Glassmorphism for floating UI elements."
+    ],
+    "rules": [
+      {
+        "name": "The Deep Canvas Rule",
+        "body": "The background must remain near-black (#111111 or #0a0a0a) to ensure 3D models and scroll-driven animations have a cinematic contrast. Avoid lighter grey surfaces.",
+        "section": "colors"
+      },
+      {
+        "name": "The Structural Text Rule",
+        "body": "Display typography (Switzer) should be sized massively, transforming it from mere text into a spatial, structural element of the canvas.",
+        "section": "typography"
+      },
+      {
+        "name": "The Atmospheric Depth Rule",
+        "body": "Depth is created by motion and blur, not shadows. Floating elements should use translucent backgrounds with backdrop-filters rather than box-shadows.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use rgba(255, 255, 255, 0.03) with a 10px blur for floating UI elements.",
+      "Do scale Switzer typography aggressively on hero sections to act as background art.",
+      "Do lean heavily on negative space and 100vh sections for scroll pacing."
+    ],
+    "donts": [
+      "Don't use drop shadows (box-shadow) to lift elements; rely on blurs and motion instead.",
+      "Don't introduce light mode or bright surface colors that break the cinematic darkroom feel.",
+      "Don't clutter the view; let the 3D models and scroll-float text breathe."
+    ]
+  }
+}

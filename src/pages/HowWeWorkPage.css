@@ -1,0 +1,179 @@
+.hww {
+  background-color: #111111;
+  color: #EDEDED;
+  font-family: var(--font-switzer);
+  min-height: 100vh;
+}
+
+/* ── Page title ── */
+.hww-hero {
+  padding: 14vh 5vw 10vh;
+}
+
+.hww-hero-title {
+  font-family: var(--font-switzer);
+  font-size: clamp(3rem, 8vw, 8rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+  margin: 0;
+}
+
+.hww-hero-title em {
+  font-family: var(--font-lora);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ── Sections wrapper ── */
+.hww-sections {
+  position: relative;
+  /* Give enough bottom padding so the last card has room to scroll */
+  padding-bottom: 20vh;
+}
+
+/* ── Each section (Stacking Card) ── */
+.hww-section {
+  position: relative;
+  background-color: #111111;
+  transform-origin: top center;
+  min-height: 100vh;
+  will-change: transform, opacity;
+  border-top: 1px solid rgba(237, 237, 237, 0.12);
+}
+
+/* ── Folder header ── */
+.hww-header {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  padding: 0 5vw;
+  border-bottom: 1px solid rgba(237, 237, 237, 0.1);
+}
+
+/* Left: number */
+.hww-header-num {
+  font-family: var(--font-lora);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: rgba(237, 237, 237, 0.35);
+  width: 4rem;
+  flex-shrink: 0;
+}
+
+/* Center: title — oversized display */
+.hww-header-title {
+  font-family: var(--font-switzer);
+  font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  flex: 1;
+}
+
+/* Right: arrow */
+.hww-header-arrow {
+  width: 1rem;
+  height: 1rem;
+  color: rgba(237, 237, 237, 0.2);
+  flex-shrink: 0;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.hww-header:hover .hww-header-arrow {
+  color: rgba(237, 237, 237, 0.5);
+  transform: translate(2px, -2px);
+}
+
+/* ── Section body ── */
+.hww-body {
+  padding: 3.5rem 5vw 5rem;
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 0 0;
+}
+
+/* Left gutter — empty, aligns with header number */
+.hww-body-gutter {
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Right content area */
+.hww-body-content {
+  padding-left: 3rem;
+}
+
+/* Description */
+.hww-desc {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.8;
+  color: rgba(237, 237, 237, 0.6);
+  max-width: 52ch;
+  margin-bottom: 3rem;
+}
+
+.hww-desc em {
+  font-family: var(--font-lora);
+  font-style: italic;
+  color: rgba(237, 237, 237, 0.95);
+}
+
+/* ── Numbered rows ── */
+.hww-rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.hww-row {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 0 1.5rem;
+  align-items: baseline;
+  padding: 1.15rem 0;
+  border-top: 1px solid rgba(237, 237, 237, 0.08);
+}
+
+.hww-row:last-child {
+  border-bottom: 1px solid rgba(237, 237, 237, 0.08);
+}
+
+.hww-row-num {
+  font-family: var(--font-lora);
+  font-style: italic;
+  font-size: 0.8rem;
+  color: rgba(237, 237, 237, 0.25);
+}
+
+.hww-row-title {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  font-weight: 500;
+  letter-spacing: 0;
+  margin-bottom: 0.2rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hww-header {
+    height: 3.5rem;
+  }
+
+  .hww-body {
+    grid-template-columns: 1fr;
+    padding: 2rem 5vw 3rem;
+  }
+
+  .hww-body-gutter {
+    display: none;
+  }
+
+  .hww-body-content {
+    padding-left: 0;
+  }
+
+  .hww-row {
+    grid-template-columns: 2rem 1fr;
+  }
+}
