@@ -9,6 +9,7 @@ import PlayerImg from '../assets/Player1.PNG';
 import StreamImg from '../assets/Stream.PNG';
 import ScheduleImg from '../assets/Schedule.PNG';
 import JobifyImg from '../assets/Jobify.PNG';
+import CultureShockImg from '../assets/CultureShock.PNG';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -52,6 +53,14 @@ const projects = [
     role: 'Web App / Admin Dashboard',
     date: '2026',
     image: ScheduleImg
+  },
+  { 
+    id: '06', 
+    title: 'Culture Shock', 
+    color: '#C0B3B3',
+    role: 'Fullstack / Game Design',
+    date: '2026',
+    image: CultureShockImg
   },
 ];
 
