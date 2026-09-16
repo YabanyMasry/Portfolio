@@ -16,6 +16,14 @@ gsap.registerPlugin(ScrollTrigger);
 const projects = [
   { 
     id: '01', 
+    title: 'Culture Shock', 
+    color: '#C0B3B3',
+    role: 'Fullstack / Game Design',
+    date: '2026',
+    image: CultureShockImg
+  },
+  { 
+    id: '02', 
     title: 'Jobify', 
     color: '#eab308',
     role: 'Web App / CV Manager',
@@ -23,7 +31,7 @@ const projects = [
     image: JobifyImg
   },
   { 
-    id: '02', 
+    id: '03', 
     title: 'Sweeper.js', // Gives it a clean, custom-built feel
     color: '#B3C0A4',
     role: 'Game Logic / Frontend',
@@ -31,7 +39,7 @@ const projects = [
     image: SweeperImg
   },
   { 
-    id: '03', 
+    id: '04', 
     title: 'Vinyl', 
     color: '#D6C5B3',
     role: 'Web Audio / UI Design',
@@ -39,7 +47,7 @@ const projects = [
     image: PlayerImg
   },
   { 
-    id: '04', 
+    id: '05', 
     title: 'Streamifies', 
     color: '#B3B8C0',
     role: 'Fullstack / Media Streaming',
@@ -47,20 +55,12 @@ const projects = [
     image: StreamImg
   },
   { 
-    id: '05', 
+    id: '06', 
     title: 'GUC Scheduler', 
     color: '#C0B3B3',
     role: 'Web App / Admin Dashboard',
     date: '2026',
     image: ScheduleImg
-  },
-  { 
-    id: '06', 
-    title: 'Culture Shock', 
-    color: '#C0B3B3',
-    role: 'Fullstack / Game Design',
-    date: '2026',
-    image: CultureShockImg
   },
 ];
 
