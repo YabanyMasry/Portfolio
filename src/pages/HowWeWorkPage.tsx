@@ -12,8 +12,8 @@ const sections = [
     title: 'Consultation & Design',
     desc: (
       <>
-        You bring the idea; I translate it into reality. We start by unpacking your goals 
-        and defining a clear visual language. It is a collaborative loop—we iterate, exchange 
+        You bring the idea; I translate it into reality. We start by unpacking your goals
+        and defining a clear visual language. It is a collaborative loop, we iterate, exchange
         honest feedback, and refine the concept until it perfectly fits your end vision.
       </>
     ),
@@ -28,8 +28,8 @@ const sections = [
     title: 'Development & Engineering',
     desc: (
       <>
-        A standard UI designer knows what <em>could</em> be; as a developer, I know what 
-         <em> can</em> be. Because I understand the entire lifecycle, I build performant systems 
+        A standard UI designer knows what <em>could</em> be; as a developer, I know what
+        <em> can</em> be. Because I understand the entire lifecycle, I build performant systems
         without the typical disconnect between design and code.
       </>
     ),
@@ -44,8 +44,8 @@ const sections = [
     title: 'Testing & Polish',
     desc: (
       <>
-        No matter how beautiful a design looks, it fails if it lacks that satisfying, flawless 
-        feel in the user's hands. I run rigorous testing at every step to ensure the final 
+        No matter how beautiful a design looks, it fails if it lacks that satisfying, flawless
+        feel in the user's hands. I run rigorous testing at every step to ensure the final
         product hits an absolute professional standard before handoff.
       </>
     ),
@@ -78,17 +78,17 @@ export default function HowWeWorkPage() {
 
   useGSAP(() => {
     const cards = gsap.utils.toArray('.hww-section') as HTMLElement[];
-    
+
     // 80px is 5rem (desktop header height). 56px is 3.5rem (mobile header).
     const isMobile = window.innerWidth <= 768;
     const headerHeight = isMobile ? 56 : 80;
     // Start pinning at 6rem (96px) on desktop, or roughly below mobile nav (64px) on mobile.
-    const startOffset = isMobile ? 64 : 96; 
+    const startOffset = isMobile ? 64 : 96;
 
     cards.forEach((card, index) => {
       // Pin each card when its top reaches the progressive folder tab offset
       const pinTop = startOffset + index * headerHeight;
-      
+
       ScrollTrigger.create({
         trigger: card,
         start: `top ${pinTop}px`,
@@ -97,7 +97,7 @@ export default function HowWeWorkPage() {
         pin: true,
         pinSpacing: false, // Prevents space reservation so the next card stacks right over it
         // Only invalidate on refresh on desktop; on mobile, URL bar hiding causes aggressive snap jumps
-        invalidateOnRefresh: !isMobile, 
+        invalidateOnRefresh: !isMobile,
       });
     });
   }, { scope: containerRef });
@@ -124,7 +124,7 @@ export default function HowWeWorkPage() {
             Process & Methodology
           </span>
         </div>
-        
+
         <h1 className="hww-hero-title">
           How I <em>work</em>
         </h1>
@@ -133,9 +133,9 @@ export default function HowWeWorkPage() {
       {/* Stacking folder sections */}
       <div className="hww-sections" ref={containerRef}>
         {sections.map((s, i) => (
-          <div 
-            className="hww-section" 
-            key={s.num} 
+          <div
+            className="hww-section"
+            key={s.num}
             style={{ zIndex: i + 1 }} // Ensure subsequent cards layer on top
           >
             {/* Folder tab */}
