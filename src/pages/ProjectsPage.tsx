@@ -10,6 +10,8 @@ import StreamImg from '../assets/Stream.PNG';
 import ScheduleImg from '../assets/Schedule.PNG';
 import JobifyImg from '../assets/Jobify.PNG';
 import CultureShockImg from '../assets/CultureShock.PNG';
+import FlightFinderImg from '../assets/FlightFinder.PNG';
+import AotdleImg from '../assets/Aotdle.PNG';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,7 +22,8 @@ const projects = [
     color: '#C0B3B3',
     role: 'Fullstack / Game Design',
     date: '2026',
-    image: CultureShockImg
+    image: CultureShockImg,
+    link: 'https://cultureshock.vercel.app/'
   },
   { 
     id: '02', 
@@ -28,7 +31,8 @@ const projects = [
     color: '#eab308',
     role: 'Web App / CV Manager',
     date: '2026',
-    image: JobifyImg
+    image: JobifyImg,
+    link: 'https://jobify-docmanagement.vercel.app/'
   },
   { 
     id: '03', 
@@ -36,7 +40,8 @@ const projects = [
     color: '#B3C0A4',
     role: 'Game Logic / Frontend',
     date: '2024',
-    image: SweeperImg
+    image: SweeperImg,
+    link: 'https://minesweeper-vue-game.vercel.app/'
   },
   { 
     id: '04', 
@@ -44,7 +49,8 @@ const projects = [
     color: '#D6C5B3',
     role: 'Web Audio / UI Design',
     date: '2025',
-    image: PlayerImg
+    image: PlayerImg,
+    link: 'https://vinylplayerdemo.vercel.app/'
   },
   { 
     id: '05', 
@@ -52,7 +58,8 @@ const projects = [
     color: '#B3B8C0',
     role: 'Fullstack / Media Streaming',
     date: '2026',
-    image: StreamImg
+    image: StreamImg,
+    link: 'https://streamifies.vercel.app/'
   },
   { 
     id: '06', 
@@ -60,7 +67,26 @@ const projects = [
     color: '#C0B3B3',
     role: 'Web App / Admin Dashboard',
     date: '2026',
-    image: ScheduleImg
+    image: ScheduleImg,
+    link: 'https://scheduling-demo-main.vercel.app/'
+  },
+  {
+    id: '07',
+    title: 'Flight Finder',
+    color: '#A4B3C0',
+    role: 'Web App',
+    date: '2026',
+    image: FlightFinderImg,
+    link: 'https://flight-finderdemo.vercel.app/'
+  },
+  {
+    id: '08',
+    title: 'Aotdle',
+    color: '#C0B3A4',
+    role: 'Web Game',
+    date: '2026',
+    image: AotdleImg,
+    link: 'https://aotdle.vercel.app/'
   },
 ];
 
@@ -248,16 +274,20 @@ export default function ProjectsPage() {
               Index — Case Study
             </span>
             <AnimatePresence mode="wait">
-              <motion.h1
+              <motion.a
                 key={activeProject.id}
+                href={activeProject.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="brutalist-title"
+                style={{ textDecoration: 'none', color: 'inherit', display: 'inline-block' }}
                 initial={{ opacity: 0, filter: "blur(8px)", y: 16 }}
                 animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
                 exit={{ opacity: 0, filter: "blur(8px)", y: -16 }}
                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               >
                 {activeProject.title}
-              </motion.h1>
+              </motion.a>
             </AnimatePresence>
             <AnimatePresence mode="wait">
               <motion.div
